@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="LibraryManagementSystem.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <%--Bootstrap css include--%>
+    <link href="./src/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <%--Datatables css include--%>
+    <link href="./src/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <%--Fontawesome css include--%>
+    <link href="./src/fontawesome/css/all.css" rel="stylesheet" />
+
+    <%--Custom css include--%>
+    <link href="./src/css/main.css" rel="stylesheet" />
+
+    <%--Jquery--%>
+    <script src="./src/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+
+    <%--Popper JS--%>
+    <script src="./src/bootstrap/js/popper.min.js"></script>
+
+    <%--Bootstrap JS--%>
+    <script src="./src/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body">
+    <form id="form1" runat="server" style="background-color:#F4F4F4; height:100vh;">
+        <%--Main--%>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        
+        <footer class="text-center" 
+            style=" 
+position:absolute; bottom:0; left:0; right:0;">
+            <p>&copy Tüm Hakları Saklıdır.</p>
+        </footer>
+    </form>
+</body>
+</html>
