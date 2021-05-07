@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +13,11 @@ namespace LibraryManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Database db = new Database();
+            SqlCommand command = new SqlCommand("SELECT * from Users", db.Connection());
+
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            Console.WriteLine(sqlDataReader);
         }
     }
 }

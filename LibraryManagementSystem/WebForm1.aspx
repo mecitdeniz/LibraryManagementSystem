@@ -16,26 +16,26 @@
                 <div class="form-group row rounded align-items-center">
                     <i class="fas fa-user ml-3" style="font-size: 24px;"></i>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı">
+                          <asp:TextBox CssClass="form-control" ID="username" runat="server" placeHolder="Kullanıcı Adı"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group row rounded align-items-center">
                     <i class="fas fa-lock ml-3" style="font-size: 24px;"></i>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="password" placeholder="Şifre">
+                          <asp:TextBox CssClass="form-control" ID="password" TextMode="Password" runat="server" placeHolder="Şifre"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
+                        <asp:CheckBox CssClass="form-check-input" ID="adminCheckbox" runat="server" />
+                        <label class="form-check-label mt-1" for="adminCheckbox">
                             Yönetici Girişi
                         </label>
                     </div>
                 </div>
-                <button type="button" class="btn  btn-block mt-4 " style="background-color:#0063D7; color:white;">Giriş Yap</button>
+                <asp:Button CssClass="btn  btn-block mt-4" BackColor="#0063D7" ForeColor="White" ID="btnLogin" runat="server" Text="Giriş Yap" />
             </div>
         </div>
     </div>
