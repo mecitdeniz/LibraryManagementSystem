@@ -15,31 +15,31 @@ namespace LibraryManagementSystem
     {
 
         /// <summary>
-        /// username control.
+        /// textBoxUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox username;
+        protected global::System.Web.UI.WebControls.TextBox textBoxUsername;
 
         /// <summary>
-        /// password control.
+        /// textBoxPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.TextBox textBoxPassword;
 
         /// <summary>
-        /// adminCheckbox control.
+        /// checkBoxAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox adminCheckbox;
+        protected global::System.Web.UI.WebControls.CheckBox checkBoxAdmin;
 
         /// <summary>
         /// btnLogin control.

@@ -16,26 +16,26 @@
                 <div class="form-group row rounded align-items-center">
                     <i class="fas fa-user ml-3" style="font-size: 24px;"></i>
                     <div class="col-sm-10">
-                          <asp:TextBox CssClass="form-control" ID="username" runat="server" placeHolder="Kullanıcı Adı"></asp:TextBox>
+                          <asp:TextBox CssClass="form-control" ID="textBoxUsername" runat="server" placeHolder="Kullanıcı Adı"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group row rounded align-items-center">
                     <i class="fas fa-lock ml-3" style="font-size: 24px;"></i>
                     <div class="col-sm-10">
-                          <asp:TextBox CssClass="form-control" ID="password" TextMode="Password" runat="server" placeHolder="Şifre"></asp:TextBox>
+                          <asp:TextBox CssClass="form-control" ID="textBoxPassword" TextMode="Password" runat="server" placeHolder="Şifre"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="form-check">
-                        <asp:CheckBox CssClass="form-check-input" ID="adminCheckbox" runat="server" />
+                        <asp:CheckBox CssClass="form-check-input" ID="checkBoxAdmin" runat="server" />
                         <label class="form-check-label mt-1" for="adminCheckbox">
                             Yönetici Girişi
                         </label>
                     </div>
                 </div>
-                <asp:Button CssClass="btn  btn-block mt-4" BackColor="#0063D7" ForeColor="White" ID="btnLogin" runat="server" Text="Giriş Yap" />
+                <asp:Button CssClass="btn  btn-block mt-4" BackColor="#0063D7" ForeColor="White" ID="btnLogin" runat="server" Text="Giriş Yap" OnClick="btnLogin_Click" />
             </div>
         </div>
     </div>
