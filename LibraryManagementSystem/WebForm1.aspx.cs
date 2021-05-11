@@ -29,21 +29,23 @@ namespace LibraryManagementSystem
 
                 SqlCommand command = new SqlCommand("SELECT * from Users where Username='" +
                     textBoxUsername.Text.Trim() + "' AND Password='" +
-                    textBoxPassword.Text.Trim() + "' AND isAdmin='"+checkBoxAdmin.Checked+"'", db.Connection());
+                    textBoxPassword.Text.Trim() + "' AND isAdmin='" + checkBoxAdmin.Checked + "'", db.Connection());
 
                 SqlDataReader sqlDataReader = command.ExecuteReader();
                 if (sqlDataReader.HasRows)
                 {
                     while (sqlDataReader.Read())
                     {
-
-                        /*
-                         * TODO
-                         * if admin redirect to the admin panel
-                         * else redirect to the student panel
-                         * 
-                         */
-                        Response.Write("<script>alert('"+sqlDataReader.GetValue(5).ToString()+"');</script>");
+                        string isAdmin = sqlDataReader.GetValue(5).ToString();
+                        if (isAdmin.Equals("True"))
+                        {
+                            Session.Add("ROLE", "ADMIN");
+                            Response.Redirect("UserList.aspx");
+                        }
+                        else
+                        {
+                            Session.Add("ROLE", "USER");
+                        }
                     }
                 }
                 else

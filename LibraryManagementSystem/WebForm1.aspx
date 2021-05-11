@@ -4,9 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="row p-5 rounded login-form-container bg-transparent">
-        <div class="col-md-6 shadow-sm text-center p-5 rounded-left"
-            style="background-color: #0063D7;">
+    <div class="row p-5 rounded bg-transparent ml-5 mr-5">
+        <div class="col-md-6 shadow-sm text-center p-5 rounded-left"style="background-color: #0063D7;">
             <img class="shadow-lg rounded-circle mt-5" src="./src/assets/logo.png" width="100" />
             <h3 class="font-weight-bold mt-3" style="color: white;">IESU Kütüphane Yönetim Sistemi</h3>
         </div>

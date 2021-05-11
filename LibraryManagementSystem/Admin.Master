@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="LibraryManagementSystem.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <%--Bootstrap css include--%>
+    <link href="./src/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    
+
+    <%--Fontawesome css include--%>
+    <link href="./src/fontawesome/css/all.css" rel="stylesheet" />
+
+    <%--Custom css include--%>
+    <link href="./src/css/main.css" rel="stylesheet" />
+
+    <%--Jquery--%>
+    <script src="./src/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+
+    <%--Popper JS--%>
+    <script src="./src/bootstrap/js/popper.min.js"></script>
+
+    <%--Bootstrap JS--%>
+    <script src="./src/bootstrap/js/bootstrap.min.js"></script>
+    
+    
+    <%--Datatables JS--%>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+    <%--Datatables css include--%>
+    <link href="./src/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" style="background-color: #F4F4F4; height: 100vh;">
+
+        <div class="container pt-5">
+
+            <div class="row p-5 rounded bg-transparent">
+                <div class="col-md-4 shadow-sm p-5 rounded-left"
+                    style="background-color: #DFDDDD;">
+                    <div class=" card-body mb-3 text-center rounded" style="background: white;">
+                        <i class="fas fa-user-tie p-3 rounded" style="font-size: 48px; background-color: #0063D7; color:white"></i>
+                        <h6 class="font-weight-bold mt-3 text-center" style="color: black;">Mecit Deniz</h6>
+                        <p class= "text-center" style="color: black; font-size:small">@1622120007</p>
+                    </div>
+                    <div>
+                        <ul class="list-group list-unstyled">
+                            <li class="list-group-item active">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div><i class="fas fa-users"></i></div>
+                                        </div>
+                                        <div class="col-9">
+                                            <a class="text-decoration-none" href="UserList.aspx" style="color: white;">Öğrenci Listesi</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div><i class="fas fa-book"></i></div>
+                                        </div>
+                                        <div class="col-9">
+                                            <a class="text-decoration-none" href="#">Kitap Listesi</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div><i class="fas fa-user-edit"></i></div>
+                                        </div>
+                                        <div class="col-9">
+                                            <a class="text-decoration-none" href="#">Profili Düzenle</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div><i class="fas fa-sign-out-alt fa-rotate-180"></i></div>
+                                        </div>
+                                        <div class="col-9">
+                                            <a class="text-decoration-none" href="WebForm1.aspx">Çıkış Yap</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 shadow-sm p-5 rounded-right " style="background-color: white;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

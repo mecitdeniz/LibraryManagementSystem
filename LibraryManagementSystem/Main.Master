@@ -32,16 +32,15 @@
     </asp:ContentPlaceHolder>
 </head>
 <body">
-    <form id="form1" runat="server" style="background-color:#F4F4F4; height:100vh;">
-        <%--Main--%>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
+    <form id="form1" runat="server" class="pt-5" style="background-color:#F4F4F4; height:100vh;">
+        <div class="container pt-5">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
         
-        <footer class="text-center" 
-            style=" 
-position:absolute; bottom:0; left:0; right:0;">
-            <p>&copy Tüm Hakları Saklıdır.</p>
-        </footer>
+            <footer class="text-center" style=" position:absolute; bottom:0; left:0; right:0;">
+                <p>&copy Tüm Hakları Saklıdır.</p>
+            </footer>
+        </div>
     </form>
 </body>
 </html>
