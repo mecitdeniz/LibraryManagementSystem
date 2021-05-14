@@ -11,11 +11,26 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            isAdmin();
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
+        }
+
+        public void isAdmin()
+        {
+            try
+            {
+                if (Session["ROLE"].Equals("") || Session["ROLE"].Equals("User"))
+                {
+                    Response.Redirect("WebForm1.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("WebForm1.aspx");
+            }
         }
     }
 }

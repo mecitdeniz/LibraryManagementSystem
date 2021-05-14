@@ -12,18 +12,6 @@ namespace LibraryManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            try
-            {
-                if (Session["ROLE"].Equals("") || Session["ROLE"].Equals("User"))
-                {
-                    Response.Redirect("WebForm1.aspx");
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("WebForm1.aspx");
-            }
-
         }
         protected void gridViewUserListRowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -56,6 +44,11 @@ namespace LibraryManagementSystem
 
                 // Add code here 
             }
+        }
+
+        protected void btnAddUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddUser.aspx");
         }
     }
 }

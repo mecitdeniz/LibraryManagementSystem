@@ -22,6 +22,8 @@
                     }
                 }
             });
+
+            //$("#liBookList").addClass("active");
             //$('.table1').DataTable();
         });
     </script>
@@ -35,7 +37,7 @@
             <h3>Öğrenci Listesi</h3>
         </div>
         <div class="col-md-3 d-flex align-items-center justify-content-end">
-            <asp:Button CssClass="btn btn-success btn-sm" runat="server" Text="Ekle"/>
+            <asp:Button CssClass="btn btn-success btn-sm"  runat="server" OnClick="btnAddUser_Click" Text="Ekle"/>
         </div>
     </div>
 
