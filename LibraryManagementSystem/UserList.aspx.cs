@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +16,7 @@ namespace LibraryManagementSystem
         }
         protected void gridViewUserListRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "accept")
+            if (e.CommandName == "guncelle")
             {
                 // Retrieve the row index stored in the 
                 // CommandArgument property.
@@ -27,22 +28,16 @@ namespace LibraryManagementSystem
 
                 int id = int.Parse(row.Cells[0].Text.ToString());
                 Response.Write("<script>alert('" + id.ToString() + "');</script>");
-
                 // Add code here 
                 //gridViewUserList.DataBind();
             }
 
-            if (e.CommandName == "reject")
+            if (e.CommandName == "DELETE")
             {
-                // Retrieve the row index stored in the 
-                // CommandArgument property.
                 int index = Convert.ToInt32(e.CommandArgument);
-
-                // Retrieve the row that contains the button 
-                // from the Rows collection.
                 GridViewRow row = gridViewUserList.Rows[index];
-
-                // Add code here 
+                int id = int.Parse(row.Cells[0].Text.ToString());
+                userListDataSource.DeleteCommand = "DELETE FROM Users WHERE ID = '" + id + "'";
             }
         }
 
@@ -50,5 +45,6 @@ namespace LibraryManagementSystem
         {
             Response.Redirect("AddUser.aspx");
         }
+
     }
 }

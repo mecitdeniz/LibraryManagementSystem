@@ -37,7 +37,7 @@
             <h3>Öğrenci Listesi</h3>
         </div>
         <div class="col-md-3 d-flex align-items-center justify-content-end">
-            <asp:Button CssClass="btn btn-success btn-sm"  runat="server" OnClick="btnAddUser_Click" Text="Ekle"/>
+            <asp:Button CssClass="btn btn-success btn-sm" runat="server" OnClick="btnAddUser_Click" Text="Ekle" />
         </div>
     </div>
 
@@ -54,24 +54,27 @@
                 OnRowCommand="gridViewUserListRowCommand"
                 DataSourceID="userListDataSource">
                 <Columns>
-                    <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
-                    <asp:BoundField DataField="FullName" HeaderText="Ad Soyad" ReadOnly="True" SortExpression="FullName" />
+                    <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
+                    <asp:BoundField DataField="FullName" HeaderText="Ad Soyad" SortExpression="FullName" />
                     <asp:BoundField DataField="Username" HeaderText="Okul Numarası" SortExpression="UserName" />
+                    <%--<asp:CommandField ShowEditButton="true" />
+                    <asp:CommandField ShowDeleteButton="true" />--%>
                     <asp:TemplateField>
                         <ItemTemplate>
                             <div class="d-flex justify-content-end align-items-center">
                                 <asp:Button ID="btnaccept" CssClass="btn btn-warning btn-sm mr-2" runat="server"
-                                CommandName="accept"
-                                CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                Text="Güncelle"></asp:Button>
-                            <asp:Button ID="btndecl" CssClass="btn btn-danger btn-sm" runat="server"
-                                CommandName="reject"
-                                CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                Text="Sil" />
+                                    CommandName="guncelle"
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                    Text="Güncelle"></asp:Button>
+                                <asp:Button ID="btndecl" CssClass="btn btn-danger btn-sm" runat="server"
+                                    CommandName="DELETE"
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                    Text="Sil" />
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+
             </asp:GridView>
         </div>
     </div>
