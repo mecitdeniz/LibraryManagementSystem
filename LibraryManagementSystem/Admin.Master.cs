@@ -24,12 +24,13 @@ namespace LibraryManagementSystem
             {
                 if (Session["ROLE"].Equals("") || Session["ROLE"].Equals("User"))
                 {
-                    Response.Redirect("WebForm1.aspx");
+                    Response.Redirect("Login.aspx");
                 }
             }
             catch (Exception ex)
             {
-                Response.Redirect("WebForm1.aspx");
+                Console.WriteLine(ex);
+                Response.Redirect("Login.aspx");
             }
         }
     }
