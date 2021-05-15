@@ -26,12 +26,9 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-5">
                     <div class="form-check">
-                        <asp:CheckBox CssClass="form-check-input" ID="checkBoxAdmin" runat="server" />
-                        <label class="form-check-label mt-1" for="adminCheckbox">
-                            Yönetici Girişi
-                        </label>
+                        <asp:CheckBox CssClass="form-check-input"  ID="checkBoxAdmin" runat="server" Text="Yönetici Girişi"/>
                     </div>
                 </div>
                 <asp:Button CssClass="btn  btn-block mt-4" BackColor="#0063D7" ForeColor="White" ID="btnLogin" runat="server" Text="Giriş Yap" OnClick="btnLogin_Click" />

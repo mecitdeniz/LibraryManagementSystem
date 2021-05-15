@@ -18,20 +18,20 @@
         <form>
             <div class="form-group">
                 <label>Ad Soyad</label>
-                <input type="email" class="form-control" placeholder="Mecit Deniz">
+                <asp:TextBox  ID="textBoxFullName" TextMode="SingleLine" CssClass="form-control" runat="server"/>
             </div>
             <div class="form-group">
                 <label>Okul Numarası</label>
-                <input type="number" class="form-control">
-            </div>
+                <asp:TextBox ID="textBoxUsername" TextMode="SingleLine" CssClass="form-control" runat="server"/>
+            </div> 
             <div class="form-group">
-                <label for="exampleInputPassword1">Şifre</label>
-                <input type="password" class="form-control" placeholder="Şifre">
+                <label for="textBoxPassword">Şifre</label>
+                <asp:TextBox ID="textBoxPassword" TextMode="Password" CssClass="form-control" placeholder="Şifre" runat="server"/>
             </div>
             <div class="form-group pl-4 mb-lg-5">
-                <asp:CheckBox runat="server" CssClass="form-check-input" Text="Admin Olarak Kaydet" />
+                <asp:CheckBox ID="checkBoxISAdmin" runat="server" CssClass="form-check-input" Text="Admin Olarak Kaydet" />
             </div>
-            <asp:Button type="submit" CssClass="btn btn-success btn btn-block" runat="server" Text="Kaydet" />
+            <asp:Button type="submit" CssClass="btn btn-success btn btn-block" runat="server" OnClick="btnSaveUser_Click" Text="Kaydet" />
 
         </form>
     </div>

@@ -22,10 +22,6 @@ namespace LibraryManagementSystem
             {
                 Database db = new Database();
 
-                /*
-                 * TODO 
-                 * Implement Validation to avoid Sql injection
-                 */
 
                 SqlCommand command = new SqlCommand("SELECT * from Users where Username='" +
                     textBoxUsername.Text.Trim() + "' AND Password='" +
@@ -36,7 +32,7 @@ namespace LibraryManagementSystem
                 {
                     while (sqlDataReader.Read())
                     {
-                        string isAdmin = sqlDataReader.GetValue(5).ToString();
+                        string isAdmin = sqlDataReader.GetValue(4).ToString();
                         if (isAdmin.Equals("True"))
                         {
                             Session.Add("ROLE", "ADMIN");
@@ -55,7 +51,7 @@ namespace LibraryManagementSystem
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Response.Write("<script>alert('"+ex.Message+"');</script>");
             }
         }
     }
