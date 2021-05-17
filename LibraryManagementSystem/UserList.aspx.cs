@@ -16,7 +16,7 @@ namespace LibraryManagementSystem
         }
         protected void gridViewUserListRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "guncelle")
+            if (e.CommandName == "UPDATEUSER")
             {
                 // Retrieve the row index stored in the 
                 // CommandArgument property.
@@ -27,7 +27,9 @@ namespace LibraryManagementSystem
                 GridViewRow row = gridViewUserList.Rows[index];
 
                 int id = int.Parse(row.Cells[0].Text.ToString());
-                Response.Write("<script>alert('" + id.ToString() + "');</script>");
+                //Response.Write("<script>alert('" + id.ToString() + "');</script>");
+
+                Response.Redirect("UpdateUser.aspx?userID=" + id);
                 // Add code here 
                 //gridViewUserList.DataBind();
             }

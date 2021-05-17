@@ -63,7 +63,7 @@
                         <ItemTemplate>
                             <div class="d-flex justify-content-end align-items-center">
                                 <asp:Button ID="btnaccept" CssClass="btn btn-warning btn-sm mr-2" runat="server"
-                                    CommandName="guncelle"
+                                    CommandName="UPDATEUSER"
                                     CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                     Text="Güncelle"></asp:Button>
                                 <asp:Button ID="btndecl" CssClass="btn btn-danger btn-sm" runat="server"

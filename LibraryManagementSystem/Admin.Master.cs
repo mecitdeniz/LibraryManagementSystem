@@ -11,7 +11,7 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            isAdmin();
+            //isAdmin();
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e)
