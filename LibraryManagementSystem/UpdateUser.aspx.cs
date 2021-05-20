@@ -25,12 +25,12 @@ namespace LibraryManagementSystem
                 textBoxFullName.Text = "NO DATA PROVIDED OR COULD NOT BE READ";
             }
         }
-        
+
         protected void btnBack_Click(object sender, EventArgs e)
         {
             goBack();
         }
-        
+
         protected void btnUpdateUser_Click(object sender, EventArgs e)
         {
             updateUser();
@@ -41,19 +41,21 @@ namespace LibraryManagementSystem
             try
             {
                 Database db = new Database();
-                SqlCommand command = new SqlCommand("SELECT * from Users where ID='"+userID+"'", db.Connection());
+                SqlCommand command = new SqlCommand("SELECT * from Users where ID='" + userID + "'", db.Connection());
 
                 SqlDataReader sqlDataReader = command.ExecuteReader();
                 if (sqlDataReader.HasRows)
                 {
                     while (sqlDataReader.Read())
                     {
-                        textBoxFullName.Text = sqlDataReader.GetValue(1).ToString();
-                        textBoxUsername.Text = sqlDataReader.GetValue(2).ToString();
-                        textBoxPassword.Text = sqlDataReader.GetValue(3).ToString();
+
+                        textBoxFullName.Attributes.Add("placeholder", sqlDataReader.GetValue(1).ToString());
+                        textBoxUsername.Attributes.Add("placeholder", sqlDataReader.GetValue(2).ToString());
+                        textBoxPassword.Attributes.Add("placeholder", sqlDataReader.GetValue(3).ToString());
                         checkBoxISAdmin.Checked = bool.Parse(sqlDataReader.GetValue(4).ToString());
                     }
                 }
+                db.Connection().Close();
             }
             catch (Exception ex)
             {
@@ -64,26 +66,29 @@ namespace LibraryManagementSystem
 
         private void updateUser()
         {
-            Response.Write("<script>alert('" + userID + "');</script>");
-            /*
+
 
             try
             {
+                Response.Write("<script>alert('" + userID + "');</script>");
+
                 Database db = new Database();
-                SqlCommand command = new SqlCommand("UPDATE Users SET FullName=@FullName,Username=@Username,Password=@Password,isAdmin=@isAdmin WHERE ID='"+userID+"'", db.Connection());
-                command.Parameters.AddWithValue("@FullName", textBoxFullName.Text.Trim());
-                command.Parameters.AddWithValue("@Username", textBoxUsername.Text.Trim());
-                command.Parameters.AddWithValue("@Password", textBoxPassword.Text.Trim());
-                command.Parameters.AddWithValue("@isAdmin", checkBoxISAdmin.Checked);
+                SqlCommand command = new SqlCommand("UPDATE Users SET FullName=@FullName," +
+                    " Username=@Username, Password=@Password, isAdmin=@isAdmin " +
+                    " where ID='" + 2 + "'", db.Connection());
+
+                command.Parameters.AddWithValue("@FullName",textBoxFullName.Text.Trim());
+                command.Parameters.AddWithValue("@Username",textBoxUsername.Text.Trim());
+                command.Parameters.AddWithValue("@Password",textBoxPassword.Text.Trim());
+                command.Parameters.AddWithValue("@isAdmin",checkBoxISAdmin.Checked);
 
                 command.ExecuteNonQuery();
-                db.Connection().Close();
                 Response.Write("<script>alert('Kullanıcı Güncellendi');</script>");
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }*/
+            }
         }
 
         public void goBack()
