@@ -14,9 +14,25 @@ namespace LibraryManagementSystem
             //isAdmin();
         }
 
-        protected void Unnamed1_Click(object sender, EventArgs e)
+
+        protected void btnUserList_Click(object sender, EventArgs e)
         {
+            Response.Redirect("UserList.aspx");
         }
+        protected void btnBookList_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BookList.aspx");
+        }
+        protected void btnEditProfile_Click(object sender, EventArgs e)
+        {
+           // Response.Redirect("BookList.aspx");
+        }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            //TODO : Delete All Session Variables
+            Response.Redirect("Login.aspx");
+        }
+
 
         public void isAdmin()
         {
