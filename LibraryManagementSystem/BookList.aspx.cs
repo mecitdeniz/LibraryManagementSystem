@@ -16,17 +16,14 @@ namespace LibraryManagementSystem
 
         protected void gridViewBookListRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "UPDATEUSER")
+            if (e.CommandName == "UPDATEBOOK")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 
                 GridViewRow row = gridViewBookList.Rows[index];
 
                 int id = int.Parse(row.Cells[0].Text.ToString());
-                //Response.Write("<script>alert('" + id.ToString() + "');</script>");
-
-                //Response.Redirect("UpdateUser.aspx?userID=" + id);
-               
+                Response.Redirect("UpdateBook.aspx?bookID=" + id);
             }
 
             if (e.CommandName == "DELETE")

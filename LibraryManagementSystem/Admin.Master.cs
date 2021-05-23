@@ -23,6 +23,10 @@ namespace LibraryManagementSystem
         {
             Response.Redirect("BookList.aspx");
         }
+        protected void btnBookRent_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BookList.aspx");
+        }
         protected void btnEditProfile_Click(object sender, EventArgs e)
         {
            // Response.Redirect("BookList.aspx");

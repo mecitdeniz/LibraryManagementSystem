@@ -79,6 +79,20 @@
                                     </div>
                                 </asp:LinkButton>
                             </li>
+                             <li class="list-group-item" id="liBookRent">
+                                <asp:LinkButton ID="LinkButton5" runat="server" OnClick="btnBookRent_Click">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div><i class="fas fa-book"></i></div>
+                                            </div>
+                                            <div class="col-9 text-center">
+                                                Kitap Kirala
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:LinkButton>
+                            </li>
                             <li class="list-group-item">
                                 <asp:LinkButton ID="LinkButton3" runat="server" OnClick="btnEditProfile_Click">
                                     <div class="container">
