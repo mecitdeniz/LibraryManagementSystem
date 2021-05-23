@@ -26,9 +26,7 @@
                 <label for="textBoxPassword">Şifre</label>
                 <asp:TextBox ID="textBoxPassword" TextMode="SingleLine" CssClass="form-control"  runat="server"/>
             </div>
-            <div class="form-group pl-4 mb-lg-5">
-                <asp:CheckBox ID="checkBoxISAdmin" runat="server" CssClass="form-check-input" Text="Admin Olarak Kaydet" />
-            </div>
+          
             <asp:Button  CssClass="btn btn-success btn btn-block" runat="server" OnClick="btnUpdateUser_Click" Text="Güncelle" />
         </form>
     </div>

@@ -121,6 +121,7 @@
     <Compile Include="UpdateUser.aspx.designer.cs">
       <DependentUpon>UpdateUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="UserDetail.aspx.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

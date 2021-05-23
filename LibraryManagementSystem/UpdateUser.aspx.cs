@@ -10,13 +10,13 @@ namespace LibraryManagementSystem
 {
     public partial class UpdateUser : System.Web.UI.Page
     {
-        private int userID;
+        private User user = new User(0,"","","");
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Request.QueryString["userID"]))
             {
-                userID = Int32.Parse(Request.QueryString["userID"]);
+                user.ID = Int32.Parse(Request.QueryString["userID"]);
                 getUser();
             }
             else
@@ -33,6 +33,7 @@ namespace LibraryManagementSystem
 
         protected void btnUpdateUser_Click(object sender, EventArgs e)
         {
+            setUserFields();
             updateUser();
         }
 
@@ -41,18 +42,20 @@ namespace LibraryManagementSystem
             try
             {
                 Database db = new Database();
-                SqlCommand command = new SqlCommand("SELECT * from Users where ID='" + userID + "'", db.Connection());
+                SqlCommand command = new SqlCommand("SELECT * from Users where ID='" + user.ID + "'", db.Connection());
 
                 SqlDataReader sqlDataReader = command.ExecuteReader();
                 if (sqlDataReader.HasRows)
                 {
                     while (sqlDataReader.Read())
                     {
-
-                        textBoxFullName.Attributes.Add("placeholder", sqlDataReader.GetValue(1).ToString());
-                        textBoxUsername.Attributes.Add("placeholder", sqlDataReader.GetValue(2).ToString());
-                        textBoxPassword.Attributes.Add("placeholder", sqlDataReader.GetValue(3).ToString());
-                        checkBoxISAdmin.Checked = bool.Parse(sqlDataReader.GetValue(4).ToString());
+                        user.FullName = sqlDataReader.GetValue(1).ToString();
+                        user.UserName = sqlDataReader.GetValue(2).ToString();
+                        user.Password = sqlDataReader.GetValue(3).ToString();
+                        
+                        textBoxFullName.Attributes.Add("placeholder", user.FullName);
+                        textBoxUsername.Attributes.Add("placeholder", user.UserName);
+                        textBoxPassword.Attributes.Add("placeholder", user.Password);
                     }
                 }
                 db.Connection().Close();
@@ -64,23 +67,38 @@ namespace LibraryManagementSystem
         }
 
 
+        private void setUserFields()
+        {
+            if(user.FullName != textBoxFullName.Text && textBoxFullName.Text != "")
+            {
+                user.FullName = textBoxFullName.Text.Trim();
+            }
+
+            if(user.UserName != textBoxUsername.Text && textBoxUsername.Text != "")
+            {
+                user.UserName = textBoxUsername.Text.Trim();
+            }
+
+            if(user.Password != textBoxPassword.Text && textBoxPassword.Text != "")
+            {
+                user.Password = textBoxPassword.Text.Trim();
+            }
+        }
+
         private void updateUser()
         {
-
-
             try
             {
-                Response.Write("<script>alert('" + userID + "');</script>");
+                Response.Write("<script>alert('" + user.ID + "');</script>");
 
                 Database db = new Database();
                 SqlCommand command = new SqlCommand("UPDATE Users SET FullName=@FullName," +
-                    " Username=@Username, Password=@Password, isAdmin=@isAdmin " +
-                    " where ID='" + 2 + "'", db.Connection());
+                    " Username=@Username, Password=@Password" +
+                    " where ID='" + user.ID + "'", db.Connection());
 
-                command.Parameters.AddWithValue("@FullName",textBoxFullName.Text.Trim());
-                command.Parameters.AddWithValue("@Username",textBoxUsername.Text.Trim());
-                command.Parameters.AddWithValue("@Password",textBoxPassword.Text.Trim());
-                command.Parameters.AddWithValue("@isAdmin",checkBoxISAdmin.Checked);
+                command.Parameters.AddWithValue("@FullName",user.FullName);
+                command.Parameters.AddWithValue("@Username",user.UserName);
+                command.Parameters.AddWithValue("@Password",user.Password);
 
                 command.ExecuteNonQuery();
                 Response.Write("<script>alert('Kullanıcı Güncellendi');</script>");
