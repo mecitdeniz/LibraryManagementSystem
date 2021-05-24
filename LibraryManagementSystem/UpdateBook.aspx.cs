@@ -100,7 +100,7 @@ namespace LibraryManagementSystem
                 command.Parameters.AddWithValue("@Category", book.Category);
 
                 command.ExecuteNonQuery();
-                Response.Write("<script>alert('Kitpa Güncellendi');</script>");
+                Response.Write("<script>alert('Kitap Güncellendi');</script>");
             }
             catch (Exception ex)
             {
