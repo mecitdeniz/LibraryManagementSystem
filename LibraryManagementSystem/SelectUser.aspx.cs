@@ -25,11 +25,9 @@ namespace LibraryManagementSystem
                 if (checkRentedBookAmount(id))
                 {
                     Response.Write("<script>alert('Aynı anda en fazla 3 kitap kiralanabilir.');</script>");
-
                 }
                 else
                 {
-                    Response.Write("<script>alert('Kitap Kiralamaya uygun');</script>");
                     Response.Redirect("SelectBook.aspx?userID=" + id);
                 }
             }
@@ -54,7 +52,6 @@ namespace LibraryManagementSystem
                             return true;
                         }
                         return false;
-
                     }
                 }
                 db.Connection().Close();
