@@ -25,7 +25,7 @@ namespace LibraryManagementSystem
         }
         protected void btnBookRent_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BookList.aspx");
+            Response.Redirect("SelectBook.aspx");
         }
         protected void btnEditProfile_Click(object sender, EventArgs e)
         {

@@ -24,8 +24,13 @@ namespace LibraryManagementSystem
 
         protected void btnSaveUser_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Tıklandı');</script>");
-            saveUser();
+            if (textBoxFullName.Text != "" && textBoxUsername.Text != "" && textBoxPassword.Text != "")
+            {
+                saveUser();
+            }
+            else{
+                Response.Write("<script>alert('Lütfen Formu Doldurunuz!');</script>");
+            }
         }
 
 
@@ -39,7 +44,7 @@ namespace LibraryManagementSystem
                 command.Parameters.AddWithValue("@FullName", textBoxFullName.Text.Trim());
                 command.Parameters.AddWithValue("@Username", textBoxUsername.Text.Trim());
                 command.Parameters.AddWithValue("@Password", textBoxPassword.Text.Trim());
-                command.Parameters.AddWithValue("@isAdmin", checkBoxISAdmin.Checked);
+                command.Parameters.AddWithValue("@isAdmin", false);
 
                 command.ExecuteNonQuery();
                 db.Connection().Close(); 
@@ -57,7 +62,6 @@ namespace LibraryManagementSystem
             textBoxFullName.Text = "";
             textBoxUsername.Text = "";
             textBoxPassword.Text = "";
-            checkBoxISAdmin.Checked = false;
         }
     }
 }
