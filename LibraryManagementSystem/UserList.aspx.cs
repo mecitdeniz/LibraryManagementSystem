@@ -16,22 +16,27 @@ namespace LibraryManagementSystem
         }
         protected void gridViewUserListRowCommand(object sender, GridViewCommandEventArgs e)
         {
+
+            if(e.CommandName == "VIEWUSER")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                
+                GridViewRow row = gridViewUserList.Rows[index];
+                
+                int id = int.Parse(row.Cells[0].Text.ToString());
+
+                Response.Redirect("UserDetail.aspx?userID=" + id);
+            }
+
             if (e.CommandName == "UPDATEUSER")
             {
-                // Retrieve the row index stored in the 
-                // CommandArgument property.
                 int index = Convert.ToInt32(e.CommandArgument);
 
-                // Retrieve the row that contains the button 
-                // from the Rows collection.
                 GridViewRow row = gridViewUserList.Rows[index];
 
                 int id = int.Parse(row.Cells[0].Text.ToString());
-                //Response.Write("<script>alert('" + id.ToString() + "');</script>");
 
                 Response.Redirect("UpdateUser.aspx?userID=" + id);
-                // Add code here 
-                //gridViewUserList.DataBind();
             }
 
             if (e.CommandName == "DELETE")

@@ -64,11 +64,15 @@
                     <asp:TemplateField>
                         <ItemTemplate>
                             <div class="d-flex justify-content-end align-items-center">
-                                <asp:Button ID="btnaccept" CssClass="btn btn-warning btn-sm mr-2" runat="server"
+                                <asp:Button ID="btnViewUser" CssClass="btn btn-primary btn-sm mr-2" runat="server"
+                                    CommandName="VIEWUSER"
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                    Text="Görüntüle"></asp:Button>
+                                <asp:Button ID="btnUpdateUser" CssClass="btn btn-warning btn-sm mr-2" runat="server"
                                     CommandName="UPDATEUSER"
                                     CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                     Text="Güncelle"></asp:Button>
-                                <asp:Button ID="btndecl" CssClass="btn btn-danger btn-sm" runat="server"
+                                <asp:Button ID="btnDeleteUser" CssClass="btn btn-danger btn-sm" runat="server"
                                     CommandName="DELETE"
                                     CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                     Text="Sil" />
