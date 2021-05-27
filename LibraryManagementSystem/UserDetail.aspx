@@ -71,7 +71,7 @@
                         <ItemTemplate>
                             <div class="d-flex justify-content-end align-items-center">
                                 <asp:Button ID="btnaccept" CssClass="btn btn-success btn-sm mr-2" runat="server"
-                                    CommandName="UPDATEBOOK"
+                                    CommandName="RETURNBOOK"
                                     CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                     Text="Teslim Al"></asp:Button>
                             </div>

@@ -48,12 +48,30 @@ namespace LibraryManagementSystem
         {
             if (e.CommandName == "RETURNBOOK")
             {
-                //int index = Convert.ToInt32(e.CommandArgument);
+                int index = Convert.ToInt32(e.CommandArgument);
 
-                //GridViewRow row = gridViewBookList.Rows[index];
+                GridViewRow row = gridViewNotReturnedBookList.Rows[index];
 
-                //int id = int.Parse(row.Cells[0].Text.ToString());
-                //Response.Redirect("UpdateBook.aspx?bookID=" + id);
+                int id = int.Parse(row.Cells[0].Text.ToString());
+
+                returnBook(id);
+                gridViewNotReturnedBookList.DataBind();
+                gridViewReturnedBookList.DataBind();
+            }
+        }
+
+        private void returnBook(int bookID)
+        {
+            try
+            {
+                Database db = new Database();
+                SqlCommand command = new SqlCommand("UPDATE RentBook SET isReturned = 1, ReturnAt=(GETDATE()) WHERE BookID = '" + bookID + "'  AND UserID= '" + user.ID + "' AND isReturned = 0", db.Connection());
+                command.ExecuteNonQuery();
+                db.Connection().Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
 
