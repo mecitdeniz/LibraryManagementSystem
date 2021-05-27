@@ -31,9 +31,13 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="row mb-3">
-        <div class="col-md-9">
+    <div class="row mb-3 align-items-center">
+        <div class="col-md-1">
+            <asp:LinkButton CssClass="row justify-content-center  align-items-center" OnClick="btnBack_Click" runat="server">
+                <i class="fas fa-chevron-left mb-1" style="font-size: 24px; color: black;"></i>
+            </asp:LinkButton>
+        </div>
+        <div class="col-md-11">
             <h3>Kitap Seç</h3>
         </div>
     </div>

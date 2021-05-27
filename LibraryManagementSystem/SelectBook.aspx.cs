@@ -22,6 +22,12 @@ namespace LibraryManagementSystem
                 goBack();
             }
         }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            goBack();
+        }
+
         protected void gridViewBookListRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "SELECTBOOK")
