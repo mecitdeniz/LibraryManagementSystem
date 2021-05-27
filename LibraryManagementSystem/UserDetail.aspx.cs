@@ -58,7 +58,32 @@ namespace LibraryManagementSystem
                 gridViewNotReturnedBookList.DataBind();
                 gridViewReturnedBookList.DataBind();
             }
+            
+            if (e.CommandName == "BOOKDETAIL")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+
+                GridViewRow row = gridViewNotReturnedBookList.Rows[index];
+
+                int id = int.Parse(row.Cells[0].Text.ToString());
+                Response.Redirect("RentDetail.aspx?rentID=" + id);
+
+            }
         }
+
+        protected void gridViewReturnedBookListRowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "BOOKDETAIL")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+
+                GridViewRow row = gridViewReturnedBookList.Rows[index];
+
+                int id = int.Parse(row.Cells[0].Text.ToString());
+                Response.Redirect("RentDetail.aspx?rentID=" + id);
+            }
+        }
+
 
         private void returnBook(int bookID)
         {

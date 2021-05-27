@@ -45,6 +45,8 @@
             </li>
         </ul>
     </div>
+
+    <%--SelectCommand="SELECT [ID], [Name], [Category], [Author] FROM [Books] WHERE [ID] IN (SELECT [BookID] FROM RentBook WHERE [UserID] = @userID AND [isReturned] = 0)"--%>
     <div class="row d-flex border pl-2 pr-2 mt-1">
         <div class="col-12">
             <asp:LinkButton ID="LinkButton1" CssClass="p-1" runat="server" OnClick="btnShowNotReturned_Click">
@@ -52,7 +54,7 @@
             </asp:LinkButton>
             <asp:SqlDataSource ID="notReturnedBookListDataSource" runat="server"
                 ConnectionString="<%$ ConnectionStrings:dbo.libraryManagementConnectionString %>"
-                SelectCommand="SELECT [ID], [Name], [Category], [Author] FROM [Books] WHERE [ID] IN (SELECT [BookID] FROM RentBook WHERE [UserID] = @userID AND [isReturned] = 0)">
+                SelectCommand="SELECT RentBook.[ID],Books.[Name], Books.[Category], Books.[Author] FROM Books INNER JOIN  RentBook ON Books.[ID]=RentBook.[BookID]   WHERE [UserID] = @userID AND [isReturned] = 0">
                 <SelectParameters>
                     <asp:QueryStringParameter Name="userID" QueryStringField="userID" />
                 </SelectParameters>
@@ -70,6 +72,10 @@
                     <asp:TemplateField>
                         <ItemTemplate>
                             <div class="d-flex justify-content-end align-items-center">
+                                <asp:Button ID="btnDetail1" CssClass="btn btn-secondary btn-sm mr-2" runat="server"
+                                    CommandName="BOOKDETAIL"
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                    Text="Detay"></asp:Button>
                                 <asp:Button ID="btnaccept" CssClass="btn btn-success btn-sm mr-2" runat="server"
                                     CommandName="RETURNBOOK"
                                     CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
@@ -90,19 +96,30 @@
 
             <asp:SqlDataSource ID="returnedBookListDataSource" runat="server"
                 ConnectionString="<%$ ConnectionStrings:dbo.libraryManagementConnectionString %>"
-                SelectCommand="SELECT [ID], [Name], [Category], [Author] FROM [Books] WHERE [ID] IN (SELECT [BookID] FROM RentBook WHERE [UserID] = @userID AND [isReturned] = 1)">
+                SelectCommand="SELECT RentBook.[ID],Books.[Name], Books.[Category], Books.[Author] FROM Books INNER JOIN  RentBook ON Books.[ID]=RentBook.[BookID]   WHERE [UserID] = @userID AND [isReturned] = 1">
                 <SelectParameters>
                     <asp:QueryStringParameter Name="userID" QueryStringField="userID" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:GridView ID="gridViewReturnedBookList" class="table table-striped table-bordered" runat="server"
                 AutoGenerateColumns="False"
+                OnRowCommand="gridViewReturnedBookListRowCommand"
                 DataSourceID="returnedBookListDataSource">
                 <Columns>
                     <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
                     <asp:BoundField DataField="Name" HeaderText="Ad" SortExpression="Name" />
                     <asp:BoundField DataField="Author" HeaderText="Yazar" SortExpression="Author" />
                     <asp:BoundField DataField="Category" HeaderText="Kategori" SortExpression="Category" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <asp:Button ID="btnDetail2" CssClass="btn btn-secondary btn-sm mr-2" runat="server"
+                                    CommandName="BOOKDETAIL"
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                    Text="Detay"></asp:Button>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
