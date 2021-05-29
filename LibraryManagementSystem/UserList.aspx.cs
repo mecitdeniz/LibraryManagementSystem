@@ -12,7 +12,7 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            (this.Master as Site1).changeButtonCss("btnUserList");
         }
         protected void gridViewUserListRowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -52,6 +52,5 @@ namespace LibraryManagementSystem
         {
             Response.Redirect("AddUser.aspx");
         }
-
     }
 }

@@ -17,6 +17,7 @@ namespace LibraryManagementSystem
             if (!string.IsNullOrEmpty(Request.QueryString["bookID"]))
             {
                 book.ID = Int32.Parse(Request.QueryString["bookID"]);
+                (this.Master as Site1).changeButtonCss("btnBookList");
                 getBook();
             }
             else

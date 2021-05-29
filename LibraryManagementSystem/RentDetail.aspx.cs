@@ -16,6 +16,7 @@ namespace LibraryManagementSystem
             if (!string.IsNullOrEmpty(Request.QueryString["rentID"]))
             {
                 int id = Int32.Parse(Request.QueryString["rentID"]);
+                (this.Master as Site1).changeButtonCss("btnUserList");
                 getRentDetail(id);
             }
             else

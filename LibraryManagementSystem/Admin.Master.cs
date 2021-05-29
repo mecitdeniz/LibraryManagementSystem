@@ -53,5 +53,19 @@ namespace LibraryManagementSystem
                 Response.Redirect("Login.aspx");
             }
         }
+
+        public void changeButtonCss(String btnID)
+        {
+            try
+            {
+                LinkButton btn = this.FindControl(btnID) as LinkButton;
+                btn.CssClass = "btn btn-block btn-primary";
+            }
+            catch (NullReferenceException ex)
+            {
+                //ignore exception
+            }
+            
+        }
     }
 }

@@ -51,10 +51,10 @@
                     </div>
                     <div>
                         <ul class="list-group list-unstyled">
-                            <li class="list-group-item active">
-                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="btnUserList_Click">
+                            <li class="list-group-item">
+                                <asp:LinkButton ID="btnUserList" CssClass="btn btn-block" runat="server" OnClick="btnUserList_Click">
                                     <div class="container">
-                                    <div class="row" style="color:white;">
+                                    <div class="row">
                                         <div class="col-3">
                                             <div><i class="fas fa-users"></i></div>
                                         </div>
@@ -66,7 +66,7 @@
                                 </asp:LinkButton>
                             </li>
                             <li class="list-group-item" id="liBookList">
-                                <asp:LinkButton ID="LinkButton2" runat="server" OnClick="btnBookList_Click">
+                                <asp:LinkButton ID="btnBookList" CssClass="btn btn-block" runat="server" OnClick="btnBookList_Click">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3">
@@ -80,7 +80,7 @@
                                 </asp:LinkButton>
                             </li>
                              <li class="list-group-item" id="liBookRent">
-                                <asp:LinkButton ID="LinkButton5" runat="server" OnClick="btnBookRent_Click">
+                                <asp:LinkButton ID="btnBookRent" CssClass="btn btn-block" runat="server" OnClick="btnBookRent_Click">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3">
@@ -94,21 +94,21 @@
                                 </asp:LinkButton>
                             </li>
                             <li class="list-group-item">
-                                <asp:LinkButton ID="LinkButton3" runat="server" OnClick="btnEditProfile_Click">
+                                <asp:LinkButton ID="btnEditProfile" CssClass="btn btn-block" runat="server" OnClick="btnEditProfile_Click">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3">
                                                 <div><i class="fas fa-user-edit"></i></div>
                                             </div>
                                             <div class="col-9 text-center">
-                                                <a class="text-decoration-none" href="#">Profili Düzenle</a>
+                                                Profili Düzenle
                                             </div>
                                         </div>
                                     </div>
                                 </asp:LinkButton>
                             </li>
                             <li class="list-group-item">
-                                <asp:LinkButton ID="LinkButton4" runat="server" OnClick="btnLogout_Click">
+                                <asp:LinkButton ID="btnLogout" CssClass="btn btn-block" runat="server" OnClick="btnLogout_Click">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3">
