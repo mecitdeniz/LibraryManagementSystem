@@ -37,11 +37,28 @@ namespace LibraryManagementSystem
             //Validate Form
             bool isPasswordsMatch = validatePassword(newPassword,confirmPassword);
             
-            if(isPasswordsMatch && !string.IsNullOrEmpty(oldPassword))
+            if(string.IsNullOrEmpty(oldPassword))
             {
-                updateUserPassword(oldPassword,newPassword);
+                Response.Write("<script>alert('Lütfen formu eksiksiz doldurunuz!');</script>");
+                return;
             }
-            else Response.Write("<script>alert('Girdiğiniz şifreler uyuşmuyor!');</script>");
+
+            if (!isPasswordsMatch)
+            {
+                Response.Write("<script>alert('Girdiğiniz şifreler uyuşmuyor!');</script>");
+                return;
+            }
+            
+            //Validate oldPassword
+            bool isPasswordCorrect = validateOldPassword(oldPassword);
+            if(!isPasswordCorrect)
+            {
+                Response.Write("<script>alert('Şifreniz hatalı!');</script>");
+                return;
+            }
+
+            updateUserPassword(oldPassword, newPassword);
+
         }
 
 
@@ -67,12 +84,38 @@ namespace LibraryManagementSystem
             }
         }
 
+
+        private bool validateOldPassword(string password)
+        {
+            try
+            {
+                Database db = new Database();
+
+                SqlCommand command = new SqlCommand("SELECT * from Users where ID='" +
+                    user.ID + "' AND Password='" + password + "'", db.Connection());
+
+                SqlDataReader sqlDataReader = command.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+            
+        }
+
         private void updateUserPassword(string oldPassword,string newPassword)
         {
             try
             {
-                //Response.Write("<script>alert('" + user.ID + "');</script>");
-
                 Database db = new Database();
                 SqlCommand command = new SqlCommand("UPDATE Users SET Password=@Password" +
                 " where ID='" + user.ID + "' and Password= '"+oldPassword+"'", db.Connection());
