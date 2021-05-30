@@ -86,12 +86,12 @@ namespace LibraryManagementSystem
         }
 
 
-        private void returnBook(int bookID)
+        private void returnBook(int rentID)
         {
             try
             {
                 Database db = new Database();
-                SqlCommand command = new SqlCommand("UPDATE RentBook SET isReturned = 1, ReturnAt=(GETDATE()) WHERE BookID = '" + bookID + "'  AND UserID= '" + user.ID + "' AND isReturned = 0", db.Connection());
+                SqlCommand command = new SqlCommand("UPDATE RentBook SET isReturned = 1, ReturnAt=(GETDATE()) WHERE ID = '" + rentID + "'  AND UserID= '" + user.ID + "' AND isReturned = 0", db.Connection());
                 command.ExecuteNonQuery();
                 db.Connection().Close();
             }
