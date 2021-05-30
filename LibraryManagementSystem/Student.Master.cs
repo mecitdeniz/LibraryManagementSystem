@@ -23,7 +23,8 @@ namespace LibraryManagementSystem
         }
         protected void btnMyBooksList_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AllBooksList.aspx");
+            int userID = int.Parse(Session["ID"].ToString());
+            Response.Redirect("MyBooksList.aspx?UserId="+userID);
         }
 
 
