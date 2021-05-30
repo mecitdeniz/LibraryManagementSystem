@@ -12,6 +12,8 @@ namespace LibraryManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
             isAdmin();
+            labelFullName.Text = Session["FULLNAME"].ToString();
+            labelUsername.Text = "@" + Session["USERNAME"].ToString();
         }
 
 
@@ -70,7 +72,7 @@ namespace LibraryManagementSystem
             {
                 //ignore exception
             }
-            
+
         }
     }
 }

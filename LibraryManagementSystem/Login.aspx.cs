@@ -43,6 +43,8 @@ namespace LibraryManagementSystem
                         {
                             Session.Add("ROLE", "ADMIN");
                             Session.Add("ID",user.ID);
+                            Session.Add("FULLNAME",user.FullName);
+                            Session.Add("USERNAME",user.UserName);
                             Response.Redirect("UserList.aspx");
                         }
                         else

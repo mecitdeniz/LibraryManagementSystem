@@ -44,10 +44,18 @@
             <div class="row p-5 rounded bg-transparent">
                 <div class="col-md-4 shadow-sm p-5 rounded-left"
                     style="background-color: #DFDDDD;">
-                    <div class=" card-body mb-3 text-center rounded" style="background: white;">
-                        <i class="fas fa-user-tie p-3 rounded" style="font-size: 48px; background-color: #0063D7; color: white"></i>
-                        <h6 class="font-weight-bold mt-3 text-center" style="color: black;">Mecit Deniz</h6>
-                        <p class="text-center" style="color: black; font-size: small">@1622120007</p>
+                    <div class="card-body mb-3 rounded text-center" style="background: white;">
+                        <ul class="list-unstyled">
+                            <li>
+                                <i class="fas fa-user-tie p-3 rounded" style="font-size: 48px; background-color: #0063D7; color: white"></i>
+                            </li>
+                            <li class="mt-1">
+                                <asp:Label ID="labelFullName" CssClass="font-weight-bold mt-3 text-center" ForeColor="Black" Font-Size="Medium" Text="-" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <asp:Label ID="labelUsername" CssClass="text-center" ForeColor="Black" Font-Size="Small" Text="-" runat="server" ></asp:Label>
+                            </li>
+                        </ul>
                     </div>
                     <div>
                         <ul class="list-group list-unstyled">
