@@ -70,6 +70,7 @@
     <Content Include="AddBook.aspx" />
     <Content Include="AddUser.aspx" />
     <Content Include="BookList.aspx" />
+    <Content Include="EditProfile.aspx" />
     <Content Include="RentDetail.aspx" />
     <Content Include="SelectBook.aspx" />
     <Content Include="SelectUser.aspx" />
@@ -104,6 +105,13 @@
       <DependentUpon>BookList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

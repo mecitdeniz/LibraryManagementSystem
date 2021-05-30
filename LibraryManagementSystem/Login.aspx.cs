@@ -16,6 +16,8 @@ namespace LibraryManagementSystem
 
         }
 
+        private User user = new User(0,"","","");
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -32,15 +34,21 @@ namespace LibraryManagementSystem
                 {
                     while (sqlDataReader.Read())
                     {
+                        user.ID = int.Parse(sqlDataReader.GetValue(0).ToString());
+                        user.FullName = sqlDataReader.GetValue(1).ToString();
+                        user.UserName = sqlDataReader.GetValue(2).ToString();
                         string isAdmin = sqlDataReader.GetValue(4).ToString();
+
                         if (isAdmin.Equals("True"))
                         {
                             Session.Add("ROLE", "ADMIN");
+                            Session.Add("ID",user.ID);
                             Response.Redirect("UserList.aspx");
                         }
                         else
                         {
                             Session.Add("ROLE", "USER");
+                            Session.Add("ID", user.ID);
                         }
                     }
                 }

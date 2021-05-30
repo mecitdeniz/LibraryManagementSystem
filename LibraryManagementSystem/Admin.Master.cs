@@ -11,7 +11,7 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //isAdmin();
+            isAdmin();
         }
 
 
@@ -19,21 +19,26 @@ namespace LibraryManagementSystem
         {
             Response.Redirect("UserList.aspx");
         }
+
         protected void btnBookList_Click(object sender, EventArgs e)
         {
             Response.Redirect("BookList.aspx");
         }
+
         protected void btnBookRent_Click(object sender, EventArgs e)
         {
             Response.Redirect("SelectUser.aspx");
         }
+
         protected void btnEditProfile_Click(object sender, EventArgs e)
         {
-           // Response.Redirect("BookList.aspx");
+            Response.Redirect("EditProfile.aspx");
         }
+
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            //TODO : Delete All Session Variables
+            //Delete All Session Variables
+            Session.Abandon();
             Response.Redirect("Login.aspx");
         }
 
