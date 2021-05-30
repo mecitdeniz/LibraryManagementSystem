@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student.master.cs" Inherits="LibraryManagementSystem.Student" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <%--Bootstrap css include--%>
+    <link href="./src/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <%--Fontawesome css include--%>
+    <link href="./src/fontawesome/css/all.css" rel="stylesheet" />
+
+    <%--Custom css include--%>
+    <link href="./src/css/main.css" rel="stylesheet" />
+
+    <%--Jquery--%>
+    <script src="./src/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+
+    <%--Popper JS--%>
+    <script src="./src/bootstrap/js/popper.min.js"></script>
+
+    <%--Bootstrap JS--%>
+    <script src="./src/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <%--Datatables JS--%>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+    <%--Datatables css include--%>
+    <link href="./src/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" style="background-color: #F4F4F4; height: 100vh;">
+
+        <div class="container pt-5">
+
+            <div class="row p-5 rounded bg-transparent">
+                <div class="col-md-4 shadow-sm p-5 rounded-left"
+                    style="background-color: #DFDDDD;">
+                    <div class="card-body mb-3 rounded text-center" style="background: white;">
+                        <ul class="list-unstyled">
+                            <li>
+                                <i class="fas fa-user-tie p-3 rounded" style="font-size: 48px; background-color: #DFDDDD; color: white"></i>
+                            </li>
+                            <li class="mt-1">
+                                <asp:Label ID="labelFullName" CssClass="font-weight-bold mt-3 text-center" ForeColor="Black" Font-Size="Medium" Text="-" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <asp:Label ID="labelUsername" CssClass="text-center" ForeColor="Black" Font-Size="Small" Text="-" runat="server"></asp:Label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-group list-unstyled">
+                            <li class="list-group-item">
+                                <asp:LinkButton ID="btnAllBooksList" CssClass="btn btn-block" runat="server" OnClick="btnAllBooksList_Click">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div><i class="fas fa-book"></i></div>
+                                            </div>
+                                            <div class="col-9 text-center">
+                                                Kitap Listesi
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:LinkButton>
+                            </li>
+                            <li class="list-group-item">
+                                <asp:LinkButton ID="btnMyBooksList" CssClass="btn btn-block" runat="server" OnClick="btnMyBooksList_Click">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div><i class="fas fa-book"></i></div>
+                                            </div>
+                                            <div class="col-9 text-center">
+                                                Kitaplarım
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:LinkButton>
+                            </li>
+                            <li class="list-group-item">
+                                <asp:LinkButton ID="btnChangePassword" CssClass="btn btn-block" runat="server" OnClick="btnChangePassword_Click">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div><i class="fas fa-user-edit"></i></div>
+                                            </div>
+                                            <div class="col-9 text-center">
+                                                Şifre Değiştir
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:LinkButton>
+                            </li>
+                            <li class="list-group-item">
+                                <asp:LinkButton ID="btnLogout" CssClass="btn btn-block" runat="server" OnClick="btnLogout_Click">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div><i class="fas fa-sign-out-alt fa-rotate-180"></i></div>
+                                            </div>
+                                            <div class="col-9 text-center">
+                                                Çıkış Yap
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 shadow-sm p-5 rounded-right " style="background-color: white;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

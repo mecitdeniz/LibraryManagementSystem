@@ -51,6 +51,9 @@ namespace LibraryManagementSystem
                         {
                             Session.Add("ROLE", "USER");
                             Session.Add("ID", user.ID);
+                            Session.Add("FULLNAME", user.FullName);
+                            Session.Add("USERNAME", user.UserName);
+                            Response.Redirect("AllBooksList.aspx");
                         }
                     }
                 }
