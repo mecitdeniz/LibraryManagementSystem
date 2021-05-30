@@ -49,7 +49,7 @@ namespace LibraryManagementSystem
         {
             try
             {
-                if (Session["ROLE"].Equals("") || Session["ROLE"].Equals("User"))
+                if (Session["ROLE"].ToString().Equals("") || Session["ROLE"].ToString().Equals("USER"))
                 {
                     Response.Redirect("Login.aspx");
                 }

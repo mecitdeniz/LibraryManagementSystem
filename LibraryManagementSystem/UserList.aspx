@@ -42,7 +42,7 @@
             <asp:Button CssClass="btn btn-success btn-sm" runat="server" OnClick="btnAddUser_Click" Text="Ekle" />
         </div>
     </div>
-
+    <asp:Label ID="labelRole" Text="" runat="server"></asp:Label>
 
     <div class="row">
         <div class="col">

@@ -47,12 +47,12 @@ namespace LibraryManagementSystem
         {
             if (e.CommandName == "BOOKDETAIL")
             {
-                //int index = Convert.ToInt32(e.CommandArgument);
+                int index = Convert.ToInt32(e.CommandArgument);
 
-                //GridViewRow row = gridViewNotReturnedBookList.Rows[index];
+                GridViewRow row = gridViewNotReturnedBookList.Rows[index];
 
-                //int id = int.Parse(row.Cells[0].Text.ToString());
-                //Response.Redirect("RentDetail.aspx?rentID=" + id);
+                int id = int.Parse(row.Cells[0].Text.ToString());
+                Response.Redirect("MyRentDetail.aspx?RentID=" + id);
 
             }
         }
@@ -61,12 +61,12 @@ namespace LibraryManagementSystem
         {
             if (e.CommandName == "BOOKDETAIL")
             {
-                //int index = Convert.ToInt32(e.CommandArgument);
+                int index = Convert.ToInt32(e.CommandArgument);
 
-                //GridViewRow row = gridViewReturnedBookList.Rows[index];
+                GridViewRow row = gridViewReturnedBookList.Rows[index];
 
-                //int id = int.Parse(row.Cells[0].Text.ToString());
-                //Response.Redirect("RentDetail.aspx?rentID=" + id);
+                int id = int.Parse(row.Cells[0].Text.ToString());
+                Response.Redirect("MyRentDetail.aspx?RentID=" + id);
             }
         }
 

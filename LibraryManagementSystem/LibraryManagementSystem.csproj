@@ -74,6 +74,7 @@
     <Content Include="ChangePassword.aspx" />
     <Content Include="EditProfile.aspx" />
     <Content Include="MyBooksList.aspx" />
+    <Content Include="MyRentDetail.aspx" />
     <Content Include="RentDetail.aspx" />
     <Content Include="SelectBook.aspx" />
     <Content Include="SelectUser.aspx" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="MyBooksList.aspx.designer.cs">
       <DependentUpon>MyBooksList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyRentDetail.aspx.cs">
+      <DependentUpon>MyRentDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyRentDetail.aspx.designer.cs">
+      <DependentUpon>MyRentDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Admin.Master.cs">
