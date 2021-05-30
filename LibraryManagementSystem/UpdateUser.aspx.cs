@@ -90,8 +90,6 @@ namespace LibraryManagementSystem
         {
             try
             {
-                Response.Write("<script>alert('" + user.ID + "');</script>");
-
                 Database db = new Database();
                 SqlCommand command = new SqlCommand("UPDATE Users SET FullName=@FullName," +
                     " Username=@Username, Password=@Password" +

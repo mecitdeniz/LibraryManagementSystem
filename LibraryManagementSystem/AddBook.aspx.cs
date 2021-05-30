@@ -50,7 +50,7 @@ namespace LibraryManagementSystem
                 command.ExecuteNonQuery();
                 db.Connection().Close();
                 clearAddBookForm();
-                Response.Write("<script>alert('Kullanıcı Eklendi');</script>");
+                Response.Write("<script>alert('Kitap Eklendi');</script>");
             }
             catch (Exception ex)
             {
